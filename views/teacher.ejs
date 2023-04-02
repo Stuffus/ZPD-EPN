@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <style>
+    <%- include('./partials/style.ejs') %>
+  </style>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <article>
+      <h1><%= teacher.teacherName %></h1>
+      <p><%= teacher.subject %></p>
+      <form action="/teacher/<%= teacher.id %>/feedback" method="POST">
+        <label for="criteria1">Cik saprotama ir sniegta informācija:</label>
+        <select id="criteria1" name="criteria1">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+    
+        <label for="criteria2">Cik skolotājs ir ieinteresēts sniegt zināšanas:</label>
+        <select id="criteria2" name="criteria2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label for="criteria3">Skolotāja individuāla pieeja:</label>
+        <select id="criteria3" name="criteria3">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label for="criteria4">Skolotāja komunikablitāte:</label>
+        <select id="criteria4" name="criteria4">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label for="criteria5">Mājasdarba apjoma adekvātums:</label>
+        <select id="criteria5" name="criteria5">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+    
+        <!-- Add more criteria options here -->
+        <button type="submit">Iesniegt</button>
+      </form>
+    </article>
+  </body>
+</html>

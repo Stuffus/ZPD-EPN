@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+            <html lang="en">
+              <nav>
+                <ul>
+                  <li><a href="/dashboard">Galvenā lapa</a></li>
+                  <li><a href="/teachers">Skolotāji</a></li>
+                  <li><a href="/logout">Iziet no profilā</a></li>
+                </ul>
+              </nav>
+              <head>
+                <meta charset="UTF-8" />
+                <title>ZPD</title>
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+                <link rel="stylesheet" href="main.css" />
+              </head>
+              <body>
+                <h1>Skolotāji:</h1>
+                <ul>
+                  <% feedbackAggregate.forEach(({ teacher, feedback }) => { %>
+                    <li>
+                      <article>
+                        <a href="/teachers/<%= teacher._id %>"><h1><%= teacher.teacherName %></h1></a>
+                        <h2><%= teacher.subject %></h2>
+                        <h3>Vidējie rādītāji:</h3>
+                        <ul>
+                          <li>Cik saprotama ir sniegta informācija: 
+                            <% if(feedback?.averageCriteria1){
+            const defCout = 5;
+            const rating = Math.round(feedback.averageCriteria1 * 2) / 2;
+            const filledStars = Math.floor(rating);
+            const halfFilledStar = (rating % 1 !== 0);
+            const emptyStars = defCout - filledStars - halfFilledStar;
+            
+            for(let i = 0; i < filledStars; i++) {
+              %><i class="fas fa-star"></i><%
+            }
+            if(halfFilledStar) {
+              %><i class="fas fa-star-half-alt"></i><%
+            }
+            for(let i = 0; i < emptyStars; i++) {
+              %><i class="far fa-star"></i><%
+            }
+            } else {
+              %>Datu nav<%
+            }
+            %>
+                        </li>
+                          <li>Cik skolotājs ir ieinteresēts sniegt zināšanas: 
+                            <% if(feedback?.averageCriteria2){
+            const defCout = 5;
+            const rating = Math.round(feedback.averageCriteria2 * 2) / 2;
+            const filledStars = Math.floor(rating);
+            const halfFilledStar = (rating % 1 !== 0);
+            const emptyStars = defCout - filledStars - halfFilledStar;
+            
+            for(let i = 0; i < filledStars; i++) {
+              %><i class="fas fa-star"></i><%
+            }
+            if(halfFilledStar) {
+              %><i class="fas fa-star-half-alt"></i><%
+            }
+            for(let i = 0; i < emptyStars; i++) {
+              %><i class="far fa-star"></i><%
+            }
+            } else {
+              %>Datu nav<%
+            }
+            %>
+            </li>
+                          <li>Skolotāja individuāla pieeja: 
+                            <% if(feedback?.averageCriteria3){
+            const defCout = 5;
+            const rating = Math.round(feedback.averageCriteria3 * 2) / 2;
+            const filledStars = Math.floor(rating);
+            const halfFilledStar = (rating % 1 !== 0);
+            const emptyStars = defCout - filledStars - halfFilledStar;
+            
+            for(let i = 0; i < filledStars; i++) {
+              %><i class="fas fa-star"></i><%
+            }
+            if(halfFilledStar) {
+              %><i class="fas fa-star-half-alt"></i><%
+            }
+            for(let i = 0; i < emptyStars; i++) {
+              %><i class="far fa-star"></i><%
+            }
+            } else {
+              %>Datu nav<%
+            }
+            %>
+                          </li>
+                          <li>Skolotāja komunikablitāte: 
+                            <% if(feedback?.averageCriteria4){
+            const defCout = 5;
+            const rating = Math.round(feedback.averageCriteria4 * 2) / 2;
+            const filledStars = Math.floor(rating);
+            const halfFilledStar = (rating % 1 !== 0);
+            const emptyStars = defCout - filledStars - halfFilledStar;
+            
+            for(let i = 0; i < filledStars; i++) {
+              %><i class="fas fa-star"></i><%
+            }
+            if(halfFilledStar) {
+              %><i class="fas fa-star-half-alt"></i><%
+            }
+            for(let i = 0; i < emptyStars; i++) {
+              %><i class="far fa-star"></i><%
+            }
+            } else {
+              %>Datu nav<%
+            }
+            %>
+                          </li>
+                          <li>Mājasdarba apjoma adekvātums: 
+                            <% if(feedback?.averageCriteria5){
+            const defCout = 5;
+            const rating = Math.round(feedback.averageCriteria5 * 2) / 2;
+            const filledStars = Math.floor(rating);
+            const halfFilledStar = (rating % 1 !== 0);
+            const emptyStars = defCout - filledStars - halfFilledStar;
+            
+            for(let i = 0; i < filledStars; i++) {
+              %><i class="fas fa-star"></i><%
+            }
+            if(halfFilledStar) {
+              %><i class="fas fa-star-half-alt"></i><%
+            }
+            for(let i = 0; i < emptyStars; i++) {
+              %><i class="far fa-star"></i><%
+            }
+            } else {
+              %>Datu nav<%
+            }
+            %>
+                          </li>
+                        </ul>
+                      </article>
+                    </li>
+                  <% }) %>      
+                </ul>
+              </body>
+            </html>
+
